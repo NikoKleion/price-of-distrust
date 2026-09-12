@@ -1,0 +1,13 @@
+T9 groundwork: label-augmented TN-mode routing (WEFT_IDEA section 5)
+
+T9 flat: (bottleneck rate, owner set) with legality floor, total preorder
+  |S| = 32, |L| = 6
+  monotone: YES
+  isotone:  NO (320 counterexamples)
+    e.g. (1, frozenset({'C'})) >= (1, frozenset()), but extend by (2, 'D') flips the order:
+         extend((2, 'D'), (1, frozenset({'C'}))) = (1, frozenset({'D', 'C'}))  <  extend((2, 'D'), (1, frozenset())) = (1, frozenset({'D'}))
+
+T9 dominance: same algebra under (rate >=, owner-set subset) partial order
+  |S| = 32, |L| = 6
+  monotone: YES
+  isotone:  YES

@@ -1,0 +1,75 @@
+VALIDATION GATE
+  [PASS] Werner F<->w round trip
+  [PASS] F=1 gives w=1
+  [PASS] F=1/4 (max mixed) gives w=0
+  [PASS] SKF(w=1) = 1
+  [PASS] SKF(w=0) = 0
+  [PASS] h(Q*) = 1/2
+  [PASS] SKF vanishes exactly at Q*
+  [PASS] p = 10^(-aL/10): 50 km at 0.2 dB/km gives 0.1
+  [PASS] MC E[max Geom] matches exact series
+  [PASS] horizon = floor(N*) at F=0.9  (N*=1.74)
+  [PASS] horizon = floor(N*) at F=0.93  (N*=2.54)
+  [PASS] horizon = floor(N*) at F=0.95  (N*=3.60)
+  [PASS] horizon = floor(N*) at F=0.96  (N*=4.53)
+  [PASS] horizon = floor(N*) at F=0.97  (N*=6.09)
+  [PASS] horizon = floor(N*) at F=0.99  (N*=18.52)
+  [PASS] N=1: ENT converges to TN (rel. < 1%)
+  [PASS] TN edge rate respects the PLOB bound
+  [PASS] price decays monotonically in N
+  [PASS] finite coherence never exceeds infinite
+
+==============================================================================
+TABLE 1. Distrust horizon vs link fidelity and coherence time
+edge 20 km, alpha 0.2 dB/km
+==============================================================================
+
+  F_link |     50 ms    200 ms       1 s       4 s      10 s  no noise   |  N* (cap)
+  ----------------------------------------------------------------------------
+   0.90  |         1         1         1         1         1         1   |    1.74
+   0.93  |         2         2         2         2         2         2   |    2.54
+   0.95  |         3         3         3         3         3         3   |    3.60
+   0.96  |         4         4         4         4         4         4   |    4.53
+   0.97  |         6         6         6         6         6         6   |    6.09
+   0.99  |        17        18        18        18        18        18   |   18.52
+
+==============================================================================
+TABLE 2. Price of distrust, F=0.96, T=10 s, edge 20 km
+price = SKR_ENT / SKR_TN = fidelity factor x rate factor
+==============================================================================
+
+    N |     price |  fidelity factor |  rate factor |   ENT SKR (Hz)
+  ----------------------------------------------------------------------
+    1 |    99.97% |          100.00% |      99.97% |       2567.9
+    2 |    46.31% |           63.70% |      72.70% |       1189.5
+    3 |    21.35% |           34.94% |      61.12% |        548.5
+    4 |     6.08% |           11.13% |      54.59% |        156.1
+    5 |       -- |            0.00% |      50.25% |          0.0
+    6 |       -- |            0.00% |      47.17% |          0.0
+    7 |       -- |            0.00% |      44.76% |          0.0
+    8 |       -- |            0.00% |      42.89% |          0.0
+
+  Trusted-relay reference rate, any N: 2568.7 Hz
+
+==============================================================================
+TABLE 3. Rate factor vs fidelity factor, same hardware as Table 2
+==============================================================================
+   N= 2:  rate  0.727   fidelity  0.637   fidelity smaller by  1.1x
+   N= 4:  rate  0.546   fidelity  0.111   fidelity smaller by  4.9x
+   N= 6:  rate  0.472   fidelity  0.000   fidelity smaller by   inf
+   N= 8:  rate  0.429   fidelity  0.000   fidelity smaller by   inf
+   N=10:  rate  0.400   fidelity  0.000   fidelity smaller by   inf
+
+==============================================================================
+TABLE 4. Distrust horizon vs edge length, F=0.97
+==============================================================================
+
+  edge km |  1/p (rounds) |  mean wait |     50 ms    200 ms       1 s      10 s  no noise
+  ----------------------------------------------------------------------------
+       10 |           1.6 |     0.13 ms |         6         6         6         6         6
+       20 |           2.5 |     0.46 ms |         6         6         6         6         6
+       50 |          10.0 |     5.04 ms |         5         6         6         6         6
+       75 |          31.6 |    24.38 ms |         5         5         6         6         6
+      100 |         100.0 |   103.37 ms |         4         5         5         6         6
+
+validation: all checks passed
